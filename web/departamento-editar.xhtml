@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+    <h:body>
+
+        <ui:composition template="/common/commonLayout.xhtml">
+            <ui:define name="content">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                            <div class="col-lg-7">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">
+                                            <h:button value="Nuevo Departamento" class=""/>
+                                            
+                                        </h1>
+                                    </div>
+                                    <h:form class="user">
+                                        <h:inputHidden value="#{departamentoBean.d.idDepartamento}"/>
+
+                                        <div class="form-group">
+                                            <h:inputText  class="form-control form-control-user piso" id="piso"  
+                                                          value="#{departamentoBean.d.piso}"  a:placeholder="Ingrese el piso" maxlength="1"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:inputText  class="form-control form-control-user letra" id="letra"  
+                                                          value="#{departamentoBean.d.letra}"  a:placeholder="Ingrese la letra" maxlength="1"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:inputText  class="form-control form-control-user capacidad" id="capacidad"  
+                                                              value="#{departamentoBean.d.capacidad}"  a:placeholder="Ingrese la capacidad" maxlength="2"/>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <h:inputText  class="form-control form-control-user capacidad" id="capacidad"  
+                                                              value="#{departamentoBean.d.precioId}"  a:placeholder="Ingrese el precio" maxlength="2"/>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-user btn-block">
+                                            
+                                        </button>
+                                        <h:link />
+                                        <h:commandButton action = "departamentos" value = "Regresar  a la Lista" />
+                                    </h:form>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+
+</html>

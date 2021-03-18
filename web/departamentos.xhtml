@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:body>
+
+        <ui:composition template="/common/commonLayout.xhtml">
+            <ui:define name="content">
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Lista de Departamentos</h6>
+                        <div class="well well-sm text-right">
+                            <a class="btn btn-primary" href="#">Nuevo Departamento</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Piso</th>
+                                        <th>Letra</th>
+                                        <th>Capacidad</th>
+                                        <th>Precio</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Piso</th>
+                                        <th>Letra</th>
+                                        <th>Capacidad</th>
+                                        <th>Precio</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <h:form>
+                                        <c:forEach var="item" items="#{departamentoBean.listaDep}">
+                                            <tr>
+                                                <td>#{item.idDepartamento}</td>
+                                                <td>#{item.piso}</td>
+                                                <td>#{item.letra}</td>
+                                                <td>#{item.capacidad}</td>
+                                                <td>#{item.precioId}</td>
+                                                <td>
+                                                    <a href="#">Editar</a>
+                                                    <h:button onclick="#{departamentoBean.getEliminar(item.idDepartamento)}" value="Eliminar" class="btn btn-primary"/>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </h:form>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+
+</html>

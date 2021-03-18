@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Arriendos</title>
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet"/>
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet"/>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+    </h:head>
+    <h:body class="bg-gradient-primary">
+        <div class="container">
+
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
+
+                <div class="col-xl-10 col-lg-12 col-md-9">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">¡Bienvenid@ de vuelta!</h1>
+                                        </div>
+                                        <h:form class="user">
+                                            <div class="form-group">
+                                                <h:selectOneMenu value = "#{userManagedBean.tipo}" class="form-control form-control-user tipo" style="padding-block: 1rem;"> 
+                                                    <f:selectItem itemValue = "0" itemLabel = "Seleccione tipo de usuario" /> 
+                                                    <f:selectItem itemValue = "1" itemLabel = "Arrendatario" /> 
+                                                    <f:selectItem itemValue = "2" itemLabel = "Arrendador" /> 
+                                                </h:selectOneMenu>   
+                                            </div>
+                                            <div class="form-group">
+                                                <h:inputText  class="form-control form-control-user cedula" id="cedula" maxlength="10"  
+                                                              value="#{userManagedBean.cedula}"  a:placeholder="Ingrese su cédula"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:inputSecret  class="form-control form-control-user password" id="password"
+                                                                value="#{userManagedBean.password}"  a:placeholder="Contraseña"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small customCheck">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck"/>
+                                                    <label class="custom-control-label" for="customCheck">Recordarme</label>
+                                                </div>
+                                            </div>
+                                            <h:commandButton class="btn btn-primary btn-user btn-block submit" id="submit" value="Iniciar Sesión" action="validation" />
+                                        </h:form>
+                                        <hr/>
+                                        <!-- <div class="text-center">
+                                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                                </div> -->
+                                        <div class="text-center">
+                                            <a class="small" href="#">Crear una Cuenta</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--  -->
+            <br />
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <script src="js/jquery.anexsoft-validator.js"></script>
+
+        <script>
+            if ($('.tipo').val() == 0) {
+                $(".cedula").hide();
+                $(".password").hide();
+                $(".submit").hide();
+                $(".customCheck").hide();
+            } else if ($('.tipo').val() == 1) {
+                $(".cedula").show();
+                $(".password").hide();
+                $(".submit").show();
+                $(".customCheck").show();
+            } else if ($('.tipo').val() == 2) {
+                $(".cedula").show();
+                $(".password").show();
+                $(".submit").show();
+                $(".customCheck").show();
+            }
+
+            $('.tipo').on('change', function () {
+                console.log($(this).val());
+                if ($(this).val() == 0) {
+                    $(".cedula").hide();
+                    $(".password").hide();
+                    $(".submit").hide();
+                    $(".customCheck").hide();
+                } else if ($(this).val() == 1) {
+                    $(".cedula").show();
+                    $(".password").hide();
+                    $(".submit").show();
+                    $(".customCheck").show();
+                } else if ($(this).val() == 2) {
+                    $(".cedula").show();
+                    $(".password").show();
+                    $(".submit").show();
+                    $(".customCheck").show();
+                }
+            });
+        </script>
+    </h:body>
+</html>
+
